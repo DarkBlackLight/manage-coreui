@@ -1,0 +1,21 @@
+// If you want to override variables do it here
+@import "variables";
+
+// Import CoreUI Pro styles with default layout
+@import "scss/coreui";
+
+// If you want to add something do it here
+@import "custom";
+
+//// Spinkit
+$spinkit-spinner-color: $body-color;
+@import "vendors/spinkit/spinkit";
+
+@import "vendors/@fullcalendar/core/main";
+@import "vendors/@fullcalendar/main.min";
+
+@import "vendors/bootstrap-daterangepicker/daterangepicker";
+@import "vendors/toastr/toastr";
+@import "vendors/select2/select2.min";
+@import "vendors/select2/select2-coreui";
+@import "vendors/dropzone/dropzone.min";

@@ -1,0 +1,16 @@
+<div class="modal fade" id="<%= modal_id %>" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog <%= (local_assigns.has_key? :size) ? 'modal-' + size : '' %>">
+    <div class="modal-content">
+      <% if title %>
+        <div class="modal-header">
+          <h4 class="modal-title"><%= title %></h4>
+          <button class="close" type="button" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </div>
+  </div>
+</div>

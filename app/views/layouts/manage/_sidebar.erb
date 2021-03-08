@@ -1,0 +1,10 @@
+<div class="c-sidebar-brand d-md-down-none">
+  <%= image_tag "/#{@config[:scope]}/images/logo-long.png", class: 'c-sidebar-brand-full admin-logo', height: 46 %>
+  <%= image_tag "/#{@config[:scope]}/images/logo.png", class: 'c-sidebar-brand-minimized admin-logo', height: 46, width: 40 %>
+</div>
+
+<ul class="c-sidebar-nav">
+  <%= manage_render_sidebar(@routes) %>
+</ul>
+
+<button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="#sidebar" data-class="c-sidebar-unfoldable"></button>

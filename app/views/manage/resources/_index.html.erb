@@ -1,0 +1,60 @@
+<% if content_for?(:filter_form) %>
+  <%= render 'manage/resources/filter' do %>
+    <%= yield :filter_form %>
+  <% end %>
+<% end %>
+
+<div class="card">
+  <div class="card-header">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="card-title mb-0"><%= @model.model_name.human %> <%= t 'manage.resources.list' %></div>
+
+      <div class=" d-flex flex-row">
+        <%= yield :tools if content_for?(:tools) %>
+        <%= link_to (t 'manage.resources.create'), url_for({ action: :new }), class: 'btn btn-success' if (can? :create, @model) %>
+      </div>
+
+    </div>
+  </div>
+  <div class="card-body">
+    <% if @resources.size == 0 %>
+      <h5 class="text-center my-5 py-3"><%= t 'manage.resources.empty_table' %></h5>
+    <% else %>
+      <table class="table table-responsive-sm table-striped">
+        <thead>
+        <tr>
+          <%= yield :th %>
+          <th><%= t 'manage.resources.updated_at' %></th>
+          <th class="text-right" width="20%"><%= t 'manage.resources.actions' %></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% if content_for?(:tb) %>
+          <%= yield :tb %>
+        <% else %>
+          <% @resources.each do |resource| %>
+            <tr>
+              <%= yield resource %>
+              <td><%= resource.updated_at.strftime('%F %T') %></td>
+              <td class="text-right">
+                <% if can? :read, resource %>
+                  <%= link_to (t 'manage.resources.show'), ({ action: 'show', id: resource.id }), class: 'btn btn-info btn-sm' %>
+                <% end %>
+                <% if can? :update, resource %>
+                  <%= link_to (t 'manage.resources.edit'), ({ action: 'edit', id: resource.id }), class: 'btn btn-warning btn-sm' %>
+                <% end %>
+                <% if can? :destroy, resource %>
+                  <%= link_to (t 'manage.resources.delete'), ({ action: 'destroy', id: resource.id }), method: :delete, data: { confirm: (t 'manage.resources.delete_confirmation') }, class: 'btn btn-danger btn-sm' %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+  <div class="card-footer">
+    <%= paginate @resources, views_prefix: 'manage' %>
+  </div>
+</div>

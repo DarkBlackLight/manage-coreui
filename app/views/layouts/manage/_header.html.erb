@@ -1,0 +1,58 @@
+<!--顶部导航栏-->
+<header class="c-header c-header-light c-header-fixed">
+  <button class="c-header-toggler c-class-toggler d-lg-none mfe-auto" type="button" data-target="#sidebar" data-class="c-sidebar-show">
+    <div class="c-icon c-icon-lg">
+      <i class="fas fa-bars"></i>
+    </div>
+  </button>
+  <a class="c-header-brand d-lg-none c-header-brand-sm-up-center" href="#">
+    <%= image_tag "/#{@config[:scope]}/images/logo.png", height: 40 %>
+  </a>
+  <button class="c-header-toggler c-class-toggler mfs-3 d-md-down-none" type="button" data-target="#sidebar" data-class="c-sidebar-lg-show" responsive="true">
+    <div class="c-icon c-icon-lg">
+      <i class="fas fa-bars"></i>
+    </div>
+  </button>
+  <ul class="c-header-nav d-md-down-none">
+  </ul>
+  <ul class="c-header-nav mfs-auto">
+    <li class="c-header-nav-item px-2">
+      <%= link_to request.params.merge(locale: (I18n.locale.to_s == 'en' ? 'zh-CN' : 'en')), class: 'c-header-nav-btn' do %>
+        <div class="c-icon">
+          <i class="fas fa-language"></i>
+        </div>
+      <% end %>
+    </li>
+
+    <li class="c-header-nav-item px-2 c-d-legacy-none">
+      <button class="c-class-toggler c-header-nav-btn" type="button" id="header-tooltip" data-target="body" data-class="c-dark-theme" data-toggle="c-tooltip" data-placement="bottom" title="Toggle Light/Dark Mode">
+        <div class="c-icon c-d-dark-none">
+          <i class="far fa-moon"></i>
+        </div>
+        <div class="c-icon c-d-default-none">
+          <i class="fas fa-sun"></i>
+        </div>
+      </button>
+    </li>
+  </ul>
+  <ul class="c-header-nav">
+    <li class="c-header-nav-item dropdown">
+      <a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        <div class="c-avatar">
+          <%= image_tag "/#{@config[:scope]}/images/avatar.png", class: "c-avatar-img" %>
+        </div>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right pt-0">
+        <div class="dropdown-divider"></div>
+        <%= link_to url_for({ controller: :sessions, action: :destroy }), method: :delete, class: "dropdown-item" do %>
+          <div class="c-icon mfe-2 d-flex flex-row align-items-center">
+            <i class="fas fa-sign-out-alt mr-2"></i> <span>Logout</span>
+          </div>
+        <% end %>
+      </div>
+    </li>
+  </ul>
+  <div class="c-subheader justify-content-between px-3">
+    <%= render 'layouts/manage/breadcrumb' %>
+  </div>
+</header>

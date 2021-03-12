@@ -3,13 +3,13 @@
 <script>
   Dropzone.autoDiscover = false;
 
-  $(document).on('turbolinks:load', function () {
+  $(document).ready(function () {
     $("div#manage-<%= name %>-dropzone").dropzone({
       url: '<%= url_for({controller: name.pluralize, action: :create }) %>',
       paramName: '<%= name %>[<%= field rescue 'document' %>]',
       params: {
         <% params.each  do |key, value| %>
-          "<%= name %>[<%= key %>]": "<%= value %>",
+        "<%= name %>[<%= key %>]": "<%= value %>",
         <% end %>
         "authenticity_token": $('meta[name=csrf-token]').attr('content')
       },

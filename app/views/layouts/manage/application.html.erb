@@ -38,12 +38,12 @@
   </div>
 <% end %>
 
-<%= render 'layouts/manage/modal', modal_id: 'image-preview-modal', title: 'Image Preview', size: 'lg' do %>
+<%= render 'layouts/manage/modal', modal_id: 'image-preview-modal', title: (t 'manage.image_preview'), size: 'lg' do %>
   <%= tag.div class: 'modal-body' do %>
     <img src="" width="100%"/>
   <% end %>
   <%= tag.div class: 'modal-footer' do %>
-    <%= button_tag 'Close', class: "btn btn-secondary", type: "button", "data-bs-dismiss": "modal" %>
+    <%= button_tag (t 'manage.close'), class: "btn btn-secondary", type: "button", "data-bs-dismiss": "modal" %>
   <% end %>
 <% end %>
 

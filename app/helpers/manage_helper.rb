@@ -135,5 +135,29 @@ module ManageHelper
     end
   end
 
+  def manage_date_tag(label, name, value, options = {})
+    options[:class] = "#{options[:class]} form-control datepicker"
+    manage_tag = (text_field_tag name, value, options)
+    tag.div class: 'form-group' do
+      (label ? ((label_tag label) + manage_tag) : manage_tag)
+    end
+  end
+
+  def manage_time_tag(label, name, value, options = {})
+    options[:class] = "#{options[:class]} form-control"
+    manage_tag = (time_field_tag name, value, options)
+    tag.div class: 'form-group' do
+      (label ? ((label_tag label) + manage_tag) : manage_tag)
+    end
+  end
+
+  def manage_datetime_tag(label, name, value, options = {})
+    options[:class] = "#{options[:class]} form-control datetimepicker"
+    manage_tag = (text_field_tag name, value, options)
+    tag.div class: 'form-group' do
+      (label ? ((label_tag label) + manage_tag) : manage_tag)
+    end
+  end
+
 end
 

@@ -6,5 +6,6 @@ zh-CN:
         sign_in_to_your_account: '登录到您的账户'
     image_preview: '图片预览'
     close: '关闭'
+    logout: '退出登录'
 
 

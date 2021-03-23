@@ -4,4 +4,6 @@ en:
       new:
         login: 'login'
         sign_in_to_your_account: 'Sign In To Your Account'
-
+    image_preview: 'Image Preview'
+    close: 'Close'
+    logout: 'Logout'

@@ -160,8 +160,8 @@ module ManageHelper
   end
 
   def human_attribute_enum(model_name, enum_attr, attr_name)
-    Hash[enum_attr.map { |k, v| [I18n.t("activerecord.attributes.#{model_name}.#{attr_name}.#{k}"), k] }]
+    Hash[enum_attr.map { |k| [k, I18n.t("activerecord.attributes.#{model_name}.#{attr_name}.#{k}")] }]
   end
-  
+
 end
 

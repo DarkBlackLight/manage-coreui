@@ -163,5 +163,8 @@ module ManageHelper
     Hash[enum_attr.map { |k| [I18n.t("activerecord.attributes.#{model_name}.#{attr_name}.#{k}"), k] }]
   end
 
+  def human_attribute_enum_show(model_name, attr_name, value, default = '')
+    value ? I18n.t("activerecord.attributes.#{model_name}.#{attr_name}.#{value}") : default
+  end
 end
 

@@ -24,7 +24,6 @@
         <thead>
         <tr>
           <%= yield :th %>
-          <th><%= t 'manage.resources.updated_at' %></th>
           <th class="text-right" width="20%"><%= t 'manage.resources.actions' %></th>
         </tr>
         </thead>
@@ -35,7 +34,6 @@
           <% @resources.each do |resource| %>
             <tr>
               <%= yield resource %>
-              <td><%= resource.updated_at.strftime('%F %T') %></td>
               <td class="text-right">
                 <% if can? :read, resource %>
                   <%= link_to (t 'manage.resources.show'), ({ action: 'show', id: resource.id }), class: 'btn btn-info btn-sm' %>

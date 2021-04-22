@@ -13,6 +13,7 @@
 //= require coreui/dropzone.min
 //= require coreui/clipboard.min
 //= require coreui/konva.min
+//= require coreui/boostrap.bundle.min
 
 //= require coreui/utils.js
 

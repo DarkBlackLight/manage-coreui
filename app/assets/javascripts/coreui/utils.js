@@ -93,6 +93,10 @@ function initFormComponents() {
     }
   });
 
+  $('.datepicker').on('apply.daterangepicker', function (ev, picker) {
+    $(this).val(picker.startDate.format('YYYY-MM-DD'));
+  });
+
   $('.datetimepicker').daterangepicker({
     autoUpdateInput: false,
     singleDatePicker: true,
@@ -102,6 +106,10 @@ function initFormComponents() {
     locale: {
       format: "YYYY-MM-DD HH:mm"
     }
+  });
+
+  $('.datetimepicker').on('apply.daterangepicker', function (ev, picker) {
+    $(this).val(picker.startDate.format('YYYY-MM-DD'));
   });
 
 }

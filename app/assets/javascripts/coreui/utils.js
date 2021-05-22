@@ -87,12 +87,14 @@ function initFormComponents() {
 
   $('.datepicker').daterangepicker({
     singleDatePicker: true,
+    autoUpdateInput: false,
     locale: {
       format: "YYYY-MM-DD"
     }
   });
 
   $('.datetimepicker').daterangepicker({
+    autoUpdateInput: false,
     singleDatePicker: true,
     timePicker: true,
     timePicker24Hour: true,

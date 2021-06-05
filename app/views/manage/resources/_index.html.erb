@@ -11,7 +11,7 @@
 
       <div class=" d-flex flex-row">
         <%= yield :tools if content_for?(:tools) %>
-        <a class="btn btn-danger mr-2" style="display: none;" id="resources-destroy-all" data-co> <%= t 'manage.resources.destroy_all_selected' %> </a>
+        <a class="btn btn-danger mr-2" style="display: none;" id="resources-destroy-all" href="#"> <%= t 'manage.resources.destroy_all_selected' %> </a>
         <%= link_to (t 'manage.resources.create'), url_for({ action: :new }), class: 'btn btn-success' if (can? :create, @model) %>
       </div>
 
@@ -25,7 +25,7 @@
         <thead>
         <tr>
           <% if can? :destroy, @model %>
-            <th width="5%" class="text-center"><%= 'manage.resources.selection' %></th>
+            <th width="5%" class="text-center"><%= t 'manage.resources.selection' %></th>
           <% end %>
           <%= yield :th %>
           <th class="text-right" width="20%"><%= t 'manage.resources.actions' %></th>

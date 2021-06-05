@@ -24,9 +24,7 @@
       <table class="table table-responsive-sm table-striped">
         <thead>
         <tr>
-          <% if can? :destroy, @model %>
-            <th width="5%" class="text-center"><%= t 'manage.resources.selection' %></th>
-          <% end %>
+          <th width="5%" class="text-center"><%= t 'manage.resources.selection' %></th>
           <%= yield :th %>
           <th class="text-right" width="20%"><%= t 'manage.resources.actions' %></th>
         </tr>
@@ -37,11 +35,10 @@
         <% else %>
           <% @resources.each do |resource| %>
             <tr>
-              <% if can? :destroy, resource %>
-                <td class="text-center">
-                  <%= check_box_tag :resource_selection, true, false, id: "resource-selection-#{resource.id}", 'data-id': resource.id %>
-                </td>
-              <% end %>
+              <td class="text-center">
+                <%= check_box_tag :resource_selection, true, false, id: "resource-selection-#{resource.id}", 'data-id': resource.id if (can? :destroy, resource) %>
+              </td>
+
               <%= yield resource %>
               <td class="text-right">
                 <% if can? :read, resource %>

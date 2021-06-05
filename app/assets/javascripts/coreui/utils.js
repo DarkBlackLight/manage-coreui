@@ -109,7 +109,7 @@ function initFormComponents() {
   });
 
   $('.datetimepicker').on('apply.daterangepicker', function (ev, picker) {
-    $(this).val(picker.startDate.format('YYYY-MM-DD'));
+    $(this).val(picker.startDate.format('YYYY-MM-DD HH:mm'));
   });
 
 }

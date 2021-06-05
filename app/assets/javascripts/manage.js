@@ -15,6 +15,6 @@
 //= require coreui/konva.min
 //= require coreui/bootstrap.bundle.min
 
-//= require coreui/utils.js
+//= require coreui/utils
 
 

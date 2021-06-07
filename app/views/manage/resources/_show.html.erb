@@ -8,6 +8,7 @@
         <div class="card-header">
           <div class="d-flex justify-content-between align-items-center">
             <h5 class="card-title"><%= @model.model_name.human %><%= t 'manage.resources.info' %></h5>
+            <%= yield :tools if content_for?(:tools) %>
           </div>
         </div>
 

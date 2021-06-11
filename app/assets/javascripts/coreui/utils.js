@@ -142,6 +142,7 @@ $(document).ready(function () {
   window.controller_name = body.data('controller-name');
   window.action_name = body.data('action-name');
   window.resource_id = body.data('resource-id');
+  window.resources_selection_ids = [];
 });
 
 // $(document).on('turbolinks:before-cache', function () {
@@ -163,8 +164,8 @@ $(document).on('change', 'input[name="resource_selection"]', function () {
 });
 
 function destroyAllResources() {
-  if (resources_destroy_ids.length > 0) {
-    let id = resources_destroy_ids.shift();
+  if (resources_selection_ids.length > 0) {
+    let id = resources_selection_ids.shift();
     $.ajax({
       url: window.location.pathname + '/' + String(id),
       method: 'delete',
@@ -172,7 +173,7 @@ function destroyAllResources() {
         "authenticity_token": $('meta[name=csrf-token]').attr('content')
       },
       success: function () {
-        if (resources_destroy_ids.length === 0) {
+        if (resources_selection_ids.length === 0) {
           window.location.reload();
         } else {
           destroyAllResources();
@@ -182,14 +183,13 @@ function destroyAllResources() {
   }
 }
 
-let resources_destroy_ids = [];
 
 $(document).on('click', '#resources-destroy-all', function () {
   if (confirm('确认要删除全部选中数据吗？')) {
-    resources_destroy_ids = [];
+    window.resources_selection_ids = [];
     $('input[name="resource_selection"]:checked').each(function () {
       var id = $(this).data('id');
-      resources_destroy_ids.push(id);
+      resources_selection_ids.push(id);
     })
     destroyAllResources();
   }

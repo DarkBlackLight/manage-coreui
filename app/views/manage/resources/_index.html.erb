@@ -12,7 +12,7 @@
       <div class=" d-flex flex-row">
         <%= yield :tools if content_for?(:tools) %>
         <a class="btn btn-danger mr-2" style="display: none;" id="resources-destroy-all" href="#"> <%= t 'manage.resources.destroy_all_selected' %> </a>
-        <%= link_to (t 'manage.resources.create'), url_for({ action: :new }), class: 'btn btn-success' if (can? :create, @model) %>
+        <%= link_to (t 'manage.resources.create'), url_for({ action: :new }), class: 'btn btn-success' if (can? :create, @model) && index_can_create %>
       </div>
 
     </div>

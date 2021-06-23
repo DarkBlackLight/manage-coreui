@@ -13,6 +13,8 @@
 </head>
 
 <body class="c-app controller-<%= controller_name %> action-<%= action_name %>" data-controller-name="<%= controller_name %>" data-action-name="<%= action_name %>" data-resource-id="<%= @resource.id rescue nil %>">
+<%= render "layouts/#{@config[:scope]}/global" rescue nil %>
+
 <% if devise_controller? %>
   <%= yield %>
 <% else %>
@@ -52,7 +54,6 @@
   <% flash[:success] = nil %>
 <% end %>
 
-<%= render "layouts/#{@config[:scope]}/global" %>
 
 </body>
 </html>

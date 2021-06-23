@@ -16,6 +16,9 @@
   <ul class="c-header-nav d-md-down-none">
   </ul>
   <ul class="c-header-nav mfs-auto">
+
+    <%= yield :header_nav if content_for?(:header_nav) %>
+
     <li class="c-header-nav-item px-2">
       <%= link_to request.params.merge(locale: (I18n.locale.to_s == 'en' ? 'zh-CN' : 'en')), class: 'c-header-nav-btn' do %>
         <div class="c-icon">

@@ -1,6 +1,6 @@
 <% sections.each do |key, value| %>
   <% if content_for?(key) %>
-    <div class="card">
+    <div class="card" id="form-card-<%= key %>">
       <div class="card-header">
         <div class="d-flex justify-content-between align-items-center">
           <h5 class="card-title mb-0"><%= value %></h5>

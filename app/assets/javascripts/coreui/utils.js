@@ -87,6 +87,7 @@ function initFormComponents() {
 
   $('.datepicker').daterangepicker({
     singleDatePicker: true,
+    autoApply: true,
     autoUpdateInput: false,
     locale: {
       format: "YYYY-MM-DD"
@@ -98,6 +99,7 @@ function initFormComponents() {
   });
 
   $('.datetimepicker').daterangepicker({
+    autoApply: true,
     autoUpdateInput: false,
     singleDatePicker: true,
     timePicker: true,

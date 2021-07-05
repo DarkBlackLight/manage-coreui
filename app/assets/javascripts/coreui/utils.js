@@ -53,7 +53,9 @@ $(document).on('ajax:success', '.form-resource', function (e, data, status, xhr)
 });
 
 $(document).on('ajax:error', '.form-resource', function (e, data, status, xhr) {
-  toastr.error(e.originalEvent.detail[0].data, 'Error!')
+  toastr.error(e.originalEvent.detail[0].data, 'Error!', {
+    "timeOut": "3000",
+  })
 });
 
 $(document).on("click", ".btn-cocoon", function (e) {

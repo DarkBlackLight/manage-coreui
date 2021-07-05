@@ -49,7 +49,9 @@
 
 <% if flash[:success] %>
   <script>
-    toastr.success("<%= flash[:success] %>", 'Success!')
+    toastr.success("<%= flash[:success] %>", 'Success!', {
+      "timeOut": "1000",
+    })
   </script>
   <% flash[:success] = nil %>
 <% end %>

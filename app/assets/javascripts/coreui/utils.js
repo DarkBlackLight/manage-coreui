@@ -134,10 +134,6 @@ function initSidebar() {
       $(this).parents('.c-sidebar-nav-dropdown').addClass('c-show');
     }
   });
-
-  if ($.cookie('sidebar') === '1') {
-    $('#sidebar').addClass('c-sidebar-unfoldable');
-  }
 }
 
 $(document).ready(function () {

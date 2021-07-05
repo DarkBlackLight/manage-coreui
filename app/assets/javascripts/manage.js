@@ -1,6 +1,7 @@
 //= require action_cable
 //= require coreui/jquery.min
 //= require coreui/jquery-ui.min
+//= require coreui/jquery.cookie.min
 //= require rails-ujs
 //= require cocoon
 //= require rails_sortable

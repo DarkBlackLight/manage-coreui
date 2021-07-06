@@ -26,9 +26,9 @@
                       <i class="fas fa-lock"></i>
                     </div>
                   </div>
+                  <%= f.hidden_field :source_type, value: @config[:auth_model] ? @config[:auth_model] : 'Admin' %>
 
                   <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
-
                 </div>
 
 

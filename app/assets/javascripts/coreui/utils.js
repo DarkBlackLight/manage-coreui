@@ -108,6 +108,7 @@ function initFormComponents() {
         autoApply: true,
         autoUpdateInput: false,
         singleDatePicker: true,
+        showDropdowns: true,
         timePicker: true,
         timePicker24Hour: true,
         // timePickerIncrement: 30,

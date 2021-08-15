@@ -95,6 +95,7 @@ function initFormComponents() {
         singleDatePicker: true,
         autoApply: true,
         autoUpdateInput: false,
+        showDropdowns: true,
         locale: {
             format: "YYYY-MM-DD"
         }

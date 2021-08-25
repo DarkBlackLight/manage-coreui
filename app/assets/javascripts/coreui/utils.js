@@ -47,16 +47,22 @@ $(document).on("click", ".go-back", function (e) {
 });
 
 $(document).on("click", ".btn-resource", function (e) {
-    form = document.querySelector('.form-resource');
+    $('.btn-resource').prop('disabled', true);
+
+    var form = document.querySelector('.form-resource');
     Rails.fire(form, 'submit');
 });
 
-$(document).on('ajax:success', '.form-resource', function (e, data, status, xhr) {
+$(document).on('ajax:success', '.form-resource', function (e) {
+    $('.btn-resource').prop('disabled', false);
+
     if (e.originalEvent.detail[0].data)
         window.location.replace(e.originalEvent.detail[0].data);
 });
 
-$(document).on('ajax:error', '.form-resource', function (e, data, status, xhr) {
+$(document).on('ajax:error', '.form-resource', function (e) {
+    $('.btn-resource').prop('disabled', false);
+
     toastr.error(e.originalEvent.detail[0].data, 'Error!', {
         "timeOut": "3000",
     })

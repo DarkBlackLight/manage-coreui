@@ -15,7 +15,7 @@ $(document).on('click', '.c-class-toggler', function () {
     var data_class = $(this).data('class');
 
     if ($(this).data('target') === '#sidebar') {
-        $.cookie('sidebar', data_target.hasClass(data_class) ? "0" : "1", {path: '/'});
+        $.cookie('sidebar', data_target.hasClass(data_class) ? "1" : "0", {path: '/'});
     }
 
     if (data_target.hasClass(data_class)) {

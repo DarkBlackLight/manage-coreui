@@ -28,7 +28,9 @@
         <tr>
           <th width="5%" class="text-center"><%= t 'manage.resources.selection' %></th>
           <%= yield :th %>
-          <th class="text-right" width="20%"><%= t 'manage.resources.actions' %></th>
+          <% if @can_action %>
+            <th class="text-right" width="20%"><%= t 'manage.resources.actions' %></th>
+          <% end %>
         </tr>
         </thead>
         <tbody>
@@ -42,17 +44,19 @@
               </td>
 
               <%= yield resource %>
-              <td class="text-right">
-                <% if can? :read, resource %>
-                  <%= link_to (t 'manage.resources.show'), ({ action: 'show', id: resource.id }), class: 'btn btn-info btn-sm' %>
-                <% end %>
-                <% if can? :update, resource %>
-                  <%= link_to (t 'manage.resources.edit'), ({ action: 'edit', id: resource.id }), class: 'btn btn-warning btn-sm' %>
-                <% end %>
-                <% if can? :destroy, resource %>
-                  <%= link_to (t 'manage.resources.delete'), ({ action: 'destroy', id: resource.id }), method: :delete, data: { confirm: (t 'manage.resources.delete_confirmation') }, class: 'btn btn-danger btn-sm' %>
-                <% end %>
-              </td>
+              <% if @can_action %>
+                <td class="text-right">
+                  <% if can? :read, resource %>
+                    <%= link_to (t 'manage.resources.show'), ({ action: 'show', id: resource.id }), class: 'btn btn-info btn-sm' %>
+                  <% end %>
+                  <% if can? :update, resource %>
+                    <%= link_to (t 'manage.resources.edit'), ({ action: 'edit', id: resource.id }), class: 'btn btn-warning btn-sm' %>
+                  <% end %>
+                  <% if can? :destroy, resource %>
+                    <%= link_to (t 'manage.resources.delete'), ({ action: 'destroy', id: resource.id }), method: :delete, data: { confirm: (t 'manage.resources.delete_confirmation') }, class: 'btn btn-danger btn-sm' %>
+                  <% end %>
+                </td>
+              <% end %>
             </tr>
           <% end %>
         <% end %>

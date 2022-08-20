@@ -6,7 +6,7 @@
 // variables. Mostly focused on spacing.
 // You can add more entries to the $spacers map, should you need more variation.
 
-$spacer:  1rem !default;
+$spacer:  0.75rem !default;
 $spacers:  () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $spacers: map-merge(

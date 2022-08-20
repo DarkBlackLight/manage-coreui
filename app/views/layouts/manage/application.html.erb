@@ -10,6 +10,10 @@
   <%= csp_meta_tag %>
   <%= stylesheet_link_tag @config[:scope], media: "all", 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag @config[:scope], 'data-turbolinks-track': 'reload' %>
+  <style>
+
+
+  </style>
 </head>
 
 <body class="c-app controller-<%= controller_name %> action-<%= action_name %>" data-controller-name="<%= controller_name %>" data-action-name="<%= action_name %>" data-resource-id="<%= @resource.id rescue nil %>">
@@ -27,10 +31,8 @@
     <%= render 'layouts/manage/header' %>
 
     <div class="c-body">
-      <main class="c-main">
-        <div class="container-fluid">
+      <main class="c-main pt-4 px-4">
           <%= yield %>
-        </div>
       </main>
     </div>
 
@@ -49,9 +51,9 @@
 
 <% if flash[:success] %>
   <script>
-    toastr.success("<%= flash[:success] %>", 'Success!', {
-      "timeOut": "1000",
-    })
+      toastr.success("<%= flash[:success] %>", 'Success!', {
+          "timeOut": "1000",
+      })
   </script>
   <% flash[:success] = nil %>
 <% end %>

@@ -9,6 +9,20 @@
 
                 <h1><%= t 'manage.sessions.new.login' %></h1>
                 <p class="text-muted"><%= t 'manage.sessions.new.sign_in_to_your_account' %></p>
+
+
+                <% if flash[:notice] %>
+                  <div class="alert alert-success alert-dismissible" role=alert>
+                    <%= flash[:notice] %>
+                  </div>
+                <% end %>
+
+                <% if flash[:alert] %>
+                  <div class="alert alert-danger alert-dismissible" role="alert">
+                    <%= flash[:alert] %>
+                  </div>
+                <% end %>
+
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <div class="input-group-text">

@@ -11,7 +11,10 @@ en:
       new:
         recover_password: 'Recover Password'
         provide_your_email: 'Please Provide Your Email'
+        setup_new_password: 'Please Setup Your New Password'
+
         submit: 'Submit'
     image_preview: 'Image Preview'
     close: 'Close'
     logout: 'Logout'
+    profile: 'Profile'

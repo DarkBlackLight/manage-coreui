@@ -13,9 +13,11 @@ zh-CN:
       new:
         recover_password: '找回密码'
         provide_your_email: '请输入您的邮箱'
+        setup_new_password: '请设置您的新密码'
         submit: '提交'
     image_preview: '图片预览'
     close: '关闭'
     logout: '退出登录'
+    profile: '个人资料'
 
 

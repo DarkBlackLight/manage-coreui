@@ -1,25 +1,54 @@
-<h2>Change your password</h2>
+<div class="w-100 d-flex flex-row align-items-center" style="<%= @config[:sessions][:background] ? "background: url('#{@config[:sessions][:background]}');background-size: cover;" : "" %>">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "admins/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
+        <% if resource.errors.any? %>
+          <% resource.errors.full_messages.each do |message| %>
+            <div class="alert alert-danger" role="alert">
+              <%= message %>
+            </div>
+          <% end %>
+        <% end %>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+        <div class="card-group">
+          <div class="card p-4">
+            <div class="card-body">
+              <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+
+                <%= f.hidden_field :reset_password_token %>
+
+                <h1><%= t 'manage.passwords.new.recover_password' %></h1>
+                <p class="text-muted"><%= t 'manage.passwords.new.setup_new_password' %></p>
+
+                <div class="input-group mb-4">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fas fa-lock"></i>
+                    </div>
+                  </div>
+                  <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: 'form-control', placeholder: 'New Password' %>
+                </div>
+
+                <div class="input-group mb-4">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fas fa-lock"></i>
+                    </div>
+                  </div>
+                  <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "new-password", class: 'form-control', placeholder: 'Password Confirmation' %>
+                </div>
+
+                <div class="row">
+                  <div class="col-12 mt-3 text-center">
+                    <%= f.submit (t 'manage.passwords.new.submit'), class: 'btn btn-primary px-4' %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "admins/shared/links" %>
+</div>

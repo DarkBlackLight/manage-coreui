@@ -45,7 +45,10 @@
           <%= image_tag "/#{@config[:scope]}/images/avatar.png", class: "c-avatar-img" %>
         </div>
       </a>
+
       <div class="dropdown-menu dropdown-menu-right pt-0">
+        <%= yield :header_dropdown if content_for?(:header_dropdown) %>
+
         <div class="dropdown-divider"></div>
         <%= link_to url_for({ controller: :sessions, action: :destroy }), method: :delete, class: "dropdown-item" do %>
           <div class="c-icon mfe-2 d-flex flex-row align-items-center">

@@ -1,16 +1,60 @@
-<h2>Forgot your password?</h2>
+<!--<h2>Forgot your password?</h2>-->
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "admins/shared/error_messages", resource: resource %>
+<%#= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+<%#= render "admins/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<!--  <div class="field">-->
+<!--    <%#= f.label :email %><br />-->
+<%#= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<!--  </div>-->
+
+<!--  <div class="actions">-->
+<%#= f.submit "Send me reset password instructions" %>
+<!--  </div>-->
+<%# end %>
+
+<%#= render "admins/shared/links" %>
+
+<div class="w-100 d-flex flex-row align-items-center" style="<%= @config[:sessions][:background] ? "background: url('#{@config[:sessions][:background]}');background-size: cover;" : "" %>">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+
+        <% if resource.errors.any? %>
+          <% resource.errors.full_messages.each do |message| %>
+            <div class="alert alert-danger" role="alert">
+              <%= message %>
+            </div>
+          <% end %>
+        <% end %>
+
+        <div class="card-group">
+          <div class="card p-4">
+            <div class="card-body">
+              <%= form_for(resource, as: resource_name, url: password_path(resource_name)) do |f| %>
+
+                <h1><%= t 'manage.passwords.new.recover_password' %></h1>
+                <p class="text-muted"><%= t 'manage.passwords.new.provide_your_email' %></p>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="far fa-user"></i>
+                    </div>
+                  </div>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' if @config[:sessions][:authentication_key] == 'email' %>
+                </div>
+
+                <div class="row">
+                  <div class="col-12 mt-3 text-center">
+                    <%= f.submit (t 'manage.passwords.new.submit'), class: 'btn btn-primary px-4' %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "admins/shared/links" %>
+</div>

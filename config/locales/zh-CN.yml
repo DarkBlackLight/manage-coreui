@@ -9,6 +9,11 @@ zh-CN:
         setup_password: '初始化登录密码'
         password: '登录密码'
         password_confirmation: '确认密码'
+    passwords:
+      new:
+        recover_password: '找回密码'
+        provide_your_email: '请输入您的邮箱'
+        submit: '提交'
     image_preview: '图片预览'
     close: '关闭'
     logout: '退出登录'

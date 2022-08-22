@@ -7,6 +7,11 @@ en:
         password: 'Login Password'
         password_confirmation: 'Password Confirmation'
         submit: 'Submit'
+    passwords:
+      new:
+        recover_password: 'Recover Password'
+        provide_your_email: 'Please Provide Your Email'
+        submit: 'Submit'
     image_preview: 'Image Preview'
     close: 'Close'
     logout: 'Logout'

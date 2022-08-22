@@ -118,16 +118,16 @@ function initFormComponents() {
         showDropdowns: true,
         timePicker: true,
         timePicker24Hour: true,
+        // showTimezone: true,
         // timePickerIncrement: 30,
         locale: {
-            format: "YYYY-MM-DD HH:mm:ss"
+            format: "YYYY-MM-DD HH:mm:ssZ"
         }
     });
 
     $('.datetimepicker').on('apply.daterangepicker', function (ev, picker) {
-        $(this).val(picker.startDate.format('YYYY-MM-DD HH:mm:ss'));
+        $(this).val(picker.startDate.format('YYYY-MM-DD HH:mm:ssZ'));
     });
-
 }
 
 function initSidebar() {

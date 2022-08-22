@@ -121,12 +121,12 @@ function initFormComponents() {
         // showTimezone: true,
         // timePickerIncrement: 30,
         locale: {
-            format: "YYYY-MM-DD HH:mm:ssZ"
+            format: "YYYY-MM-DD HH:mm:ss Z"
         }
     });
 
     $('.datetimepicker').on('apply.daterangepicker', function (ev, picker) {
-        $(this).val(picker.startDate.format('YYYY-MM-DD HH:mm:ssZ'));
+        $(this).val(picker.startDate.format('YYYY-MM-DD HH:mm:ss Z'));
     });
 }
 

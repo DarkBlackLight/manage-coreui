@@ -43,9 +43,11 @@
         <% else %>
           <% @resources.each do |resource| %>
             <tr>
-              <% if (can? :destroy, resource) && @can_select %>
+              <% if @can_select %>
                 <td class="text-center">
-                  <%= check_box_tag :resource_selection, true, false, id: "resource-selection-#{resource.id}", 'data-id': resource.id %>
+                  <% if can? :destroy, resource %>
+                    <%= check_box_tag :resource_selection, true, false, id: "resource-selection-#{resource.id}", 'data-id': resource.id %>
+                  <% end %>
                 </td>
               <% end %>
 

@@ -13,7 +13,9 @@
 
       <div class=" d-flex flex-row">
         <%= yield :tools if content_for?(:tools) %>
-        <a class="btn btn-danger mr-2" style="display: none;" id="resources-destroy-all" href="#"> <%= t 'manage.resources.destroy_all_selected' %> </a>
+        <% if can? :destroy, @model %>
+          <a class="btn btn-danger mr-2" style="display: none;" id="resources-destroy-all" href="#"> <%= t 'manage.resources.destroy_all_selected' %> </a>
+        <% end %>
         <%= link_to (t 'manage.resources.create'), url_for({ action: :new }), class: 'btn btn-success' if (can? :create, @model) && @can_create %>
       </div>
 
@@ -26,7 +28,9 @@
       <table class="table table-responsive-sm table-striped">
         <thead>
         <tr>
-          <th width="5%" class="text-center"><%= t 'manage.resources.selection' %></th>
+          <% if can? :destroy, @model %>
+            <th width="5%" class="text-center"><%= t 'manage.resources.selection' %></th>
+          <% end %>
           <%= yield :th %>
           <% if @can_action %>
             <th class="text-right" width="20%"><%= t 'manage.resources.actions' %></th>
@@ -39,9 +43,11 @@
         <% else %>
           <% @resources.each do |resource| %>
             <tr>
-              <td class="text-center">
-                <%= check_box_tag :resource_selection, true, false, id: "resource-selection-#{resource.id}", 'data-id': resource.id %>
-              </td>
+              <% if can? :destroy, resource %>
+                <td class="text-center">
+                  <%= check_box_tag :resource_selection, true, false, id: "resource-selection-#{resource.id}", 'data-id': resource.id %>
+                </td>
+              <% end %>
 
               <%= yield resource %>
               <% if @can_action %>

@@ -72,7 +72,11 @@
       </table>
     <% end %>
   </div>
-  <div class="card-footer">
+  <div class="card-footer d-flex justify-content-between align-items-center">
     <%= paginate @resources, views_prefix: 'manage' %>
+
+    <div style="color: #858585">当前 <%= @resources.current_page %> / <%= @resources.total_pages %>
+      页，共有 <%= @resources_all.count %> 条
+    </div>
   </div>
 </div>
